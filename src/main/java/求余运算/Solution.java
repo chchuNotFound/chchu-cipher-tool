@@ -3,7 +3,8 @@ package 求余运算;
 public class Solution {
 
     public static void main(String[] args) {
-        findN(3817);
+        findN(53);
+        System.out.println((-66 * 11) % 26);
     }
 
     public static void findN(int val) {
