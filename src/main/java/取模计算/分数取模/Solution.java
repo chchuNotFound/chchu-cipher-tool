@@ -1,4 +1,4 @@
-package 求余运算;
+package 取模计算.分数取模;
 
 public class Solution {
 
