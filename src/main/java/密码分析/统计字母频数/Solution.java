@@ -23,7 +23,8 @@ public class Solution {
                 "GZKT TLZK MFGZ SKMK CFUP ORWUWCKM ZPFG ROIV KGKL ZOZG AQRP QRMK VKGK" +
                 "LZOZ GAQR PQRM DZSK OOQZ ORLZ OQZP GIVO WMIM OZLR MMZO FVOQ FMAQ ZUAZ" +
                 "MKIO QKOO QZKS YZGM KGIK TEWG ROQL GFUM RUVW TIUW LRKT ORLZ AZLZ KUOR" +
-                "LZNW FUSZ SNIM WLZV WTIU WLRK TCFU PORW U");
+                "LZNW FUSZ SNIM WLZV WTIU WLRK TCFU PORW U"
+        );
     }
 
     public static void statAlpha(String cipherText) {
@@ -44,6 +45,25 @@ public class Solution {
         }
 
         System.out.println("统计后：" + alphaStat);
+
+        List<Map.Entry<Character, Integer>> list = new ArrayList<Map.Entry<Character, Integer>>(alphaStat.entrySet());
+        list.sort(new Comparator<Map.Entry<Character, Integer>>() {
+            @Override
+            public int compare(Map.Entry<Character, Integer> o1, Map.Entry<Character, Integer> o2) {
+                return o2.getValue().compareTo(o1.getValue());
+            }
+        });
+
+        System.out.print("排序后：");
+        for (int i = 0; i < list.size(); i++) {
+            System.out.print(list.get(i).getKey() + "=" + list.get(i).getValue());
+            if(i != list.size() - 1) {
+                System.out.print(", ");
+            }
+
+        }
+
+
     }
 
 }
