@@ -3,7 +3,9 @@ package 维吉尼亚密码加密;
 public class Solution {
 
     public static void main(String[] args) {
+
         vigenereCipherEncoder("WEAREDISCOVEREDSAVEYOURSELF", "FRIDAY");
+
     }
 
     public static void vigenereCipherEncoder(String plainText, String key) {

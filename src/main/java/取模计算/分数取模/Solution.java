@@ -3,8 +3,8 @@ package 取模计算.分数取模;
 public class Solution {
 
     public static void main(String[] args) {
-        findN(53);
-        System.out.println((-66 * 11) % 26);
+//        findN(3817);
+        findN(15);
     }
 
     public static void findN(int val) {
