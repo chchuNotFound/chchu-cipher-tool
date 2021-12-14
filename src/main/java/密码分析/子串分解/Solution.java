@@ -123,7 +123,7 @@ public class Solution {
             }
         }
         System.out.println("max of Mg("+ index + ") = " + max);
-
+        System.out.println("code = " + (char)(index + 'A'));
     }
 
 }
