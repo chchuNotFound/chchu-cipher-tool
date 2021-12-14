@@ -26,6 +26,7 @@ public class Solution {
         System.out.println("---------------------------------------");
         mCals(m, ciphertext);
         System.out.println("---------------------------------------");
+        System.out.println("重合指数应尽可能接近0.065");
 
     }
 
