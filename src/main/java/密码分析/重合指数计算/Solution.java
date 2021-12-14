@@ -7,15 +7,24 @@ import java.util.Scanner;
 public class Solution {
 
     public static void main(String[] args) {
+//        String rawtext =
+//                        "CHRE EVOA HMAE RATB IAXX WTNX BEEO PHBS BQMQ EQER BWRV " +
+//                        "XUOA KXAO SXXW EAHB WGJM MQMN KGRF VGXW TRZX WIAK LXFP " +
+//                        "SKAU TEMN DCMG TSXM XBTU IADN GMGP SREL XNJE LXVR VPRT " +
+//                        "ULHD NQWT WDTY GBPH XTFA LJHA SVBF XNGL LCHR ZBWE LEKM " +
+//                        "SJIK NBHW RJGN MGJS GLXF EYPH AGNR BIEQ JTAM RVLC RREM " +
+//                        "NDGL XRRI MGNS NRWC HRQH AEYE VTAQ EBBI PEEW EVKA KOEW " +
+//                        "ADRE MXMT BHHC HRTK DNVR ZCHR CLQO HPWQ AIIW XNRM GWOI " +
+//                        "IFKE E";
         String rawtext =
-                        "CHRE EVOA HMAE RATB IAXX WTNX BEEO PHBS BQMQ EQER BWRV " +
-                        "XUOA KXAO SXXW EAHB WGJM MQMN KGRF VGXW TRZX WIAK LXFP " +
-                        "SKAU TEMN DCMG TSXM XBTU IADN GMGP SREL XNJE LXVR VPRT " +
-                        "ULHD NQWT WDTY GBPH XTFA LJHA SVBF XNGL LCHR ZBWE LEKM " +
-                        "SJIK NBHW RJGN MGJS GLXF EYPH AGNR BIEQ JTAM RVLC RREM " +
-                        "NDGL XRRI MGNS NRWC HRQH AEYE VTAQ EBBI PEEW EVKA KOEW " +
-                        "ADRE MXMT BHHC HRTK DNVR ZCHR CLQO HPWQ AIIW XNRM GWOI " +
-                        "IFKE E";
+                "KCCPKBGUFDPHQTYAVINRRTMVGRKDNBVFDETDGILTXRGUD" +
+                "DKOTFMBPVGEGLTGCKQRACQCWDNAWCRXIZAKFTLEWRPTYC" +
+                "QKYVXCHKFTPONCQQRHJVAJUWETMCMSPKQDYHJVDAHCTRL" +
+                "SVSKCGCZQQDZXGSFRLSWCWSJTBHAFSIASPRJAHKJRJUMV" +
+                "GKMITZHFPDISPZLVLGWTFPLKKEBDPGCEBSHCTJRWXBAFS" +
+                "PEZQNRWXCVYCGAONWDDKACKAWBBIKFTIOVKCGGHJVLNHI" +
+                "FFSQESVYCLACNVRWBBIREPBBVFEXOSCDYGZWPFDTKFQIY" +
+                "CWHJVLNHIQIBTKHJVNPIST";
         System.out.println("请输入m: ");
         Scanner sc = new Scanner(System.in);
         int m = sc.nextInt();

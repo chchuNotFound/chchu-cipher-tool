@@ -1,4 +1,4 @@
-package 密码分析.子串分解;
+package 密码分析.子串分解_维吉尼亚密码密钥分析;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -11,6 +11,7 @@ public class Solution {
     static HashMap<Character, Double> alpha = new HashMap<>();
 
     public static void main(String[] args) {
+        // 字母表的字母频数--------------------------
         alpha.put('A', 0.082);alpha.put('B', 0.015);
         alpha.put('C', 0.028);alpha.put('D', 0.043);
         alpha.put('E', 0.127);alpha.put('F', 0.022);
@@ -24,21 +25,32 @@ public class Solution {
         alpha.put('U', 0.028);alpha.put('V', 0.010);
         alpha.put('W', 0.023);alpha.put('X', 0.001);
         alpha.put('Y', 0.020);alpha.put('Z', 0.001);
+        //------------------------------------------
+
         System.out.println("请输入m: ");
         Scanner sc = new Scanner(System.in);
+        // 要先重合指数计算，确定m
         int m = sc.nextInt();
 
+//        String rawString =
+//                "CHRE EVOA HMAE RATB IAXX WTNX BEEO PHBS BQMQ EQER BWRV " +
+//                "XUOA KXAO SXXW EAHB WGJM MQMN KGRF VGXW TRZX WIAK LXFP " +
+//                "SKAU TEMN DCMG TSXM XBTU IADN GMGP SREL XNJE LXVR VPRT " +
+//                "ULHD NQWT WDTY GBPH XTFA LJHA SVBF XNGL LCHR ZBWE LEKM " +
+//                "SJIK NBHW RJGN MGJS GLXF EYPH AGNR BIEQ JTAM RVLC RREM " +
+//                "NDGL XRRI MGNS NRWC HRQH AEYE VTAQ EBBI PEEW EVKA KOEW " +
+//                "ADRE MXMT BHHC HRTK DNVR ZCHR CLQO HPWQ AIIW XNRM GWOI " +
+//                "IFKE E";
         String rawString =
-                "CHRE EVOA HMAE RATB IAXX WTNX BEEO PHBS BQMQ EQER BWRV " +
-                "XUOA KXAO SXXW EAHB WGJM MQMN KGRF VGXW TRZX WIAK LXFP " +
-                "SKAU TEMN DCMG TSXM XBTU IADN GMGP SREL XNJE LXVR VPRT " +
-                "ULHD NQWT WDTY GBPH XTFA LJHA SVBF XNGL LCHR ZBWE LEKM " +
-                "SJIK NBHW RJGN MGJS GLXF EYPH AGNR BIEQ JTAM RVLC RREM " +
-                "NDGL XRRI MGNS NRWC HRQH AEYE VTAQ EBBI PEEW EVKA KOEW " +
-                "ADRE MXMT BHHC HRTK DNVR ZCHR CLQO HPWQ AIIW XNRM GWOI " +
-                "IFKE E";
+                "KCCPKBGUFDPHQTYAVINRRTMVGRKDNBVFDETDGILTXRGUD" +
+                "DKOTFMBPVGEGLTGCKQRACQCWDNAWCRXIZAKFTLEWRPTYC" +
+                "QKYVXCHKFTPONCQQRHJVAJUWETMCMSPKQDYHJVDAHCTRL" +
+                "SVSKCGCZQQDZXGSFRLSWCWSJTBHAFSIASPRJAHKJRJUMV" +
+                "GKMITZHFPDISPZLVLGWTFPLKKEBDPGCEBSHCTJRWXBAFS" +
+                "PEZQNRWXCVYCGAONWDDKACKAWBBIKFTIOVKCGGHJVLNHI" +
+                "FFSQESVYCLACNVRWBBIREPBBVFEXOSCDYGZWPFDTKFQIY" +
+                "CWHJVLNHIQIBTKHJVNPIST";
         String treatedString = pretreatment(rawString);
-//        System.out.println(treatedString);
         splitTOSubstring(treatedString, m);
 
     }
@@ -90,6 +102,10 @@ public class Solution {
         }
     }
 
+    /**
+     * 确定密钥字
+     * @param str
+     */
     public static void statAlphaProbDistr(String str) {
         Map<Character, Double> map = new HashMap<>();
         for(int i = 0; i < 26; i++) {
