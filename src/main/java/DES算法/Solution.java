@@ -68,10 +68,7 @@ public class Solution {
                 1,0,0,0, 1,0,0,1, 1,0,1,0, 1,0,1,1, 1,1,0,0, 1,1,0,1, 1,1,1,0, 1,1,1,1
         };
         keyPermutation(key);
-//        ipPermutation(plaintext);
-
-
-
+        ipPermutation(plaintext);
     }
 
     /**
@@ -105,6 +102,10 @@ public class Solution {
 
     }
 
+    /**
+     * 求K1
+     * @param key
+     */
     public static void keyPermutation(int[] key) {
 
         // 初始化changedKey1
@@ -210,6 +211,7 @@ public class Solution {
         }
 
     }
+
 
 
 }
