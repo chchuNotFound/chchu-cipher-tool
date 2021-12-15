@@ -4,7 +4,7 @@ public class Solution {
 
     public static void main(String[] args) {
 //        findN(3817);
-        findN(15);
+        findN(53);
     }
 
     public static void findN(int val) {

@@ -1,16 +1,14 @@
 package 取模计算.矩阵取模;
 
-import java.util.Scanner;
-
 import static java.lang.Math.floorMod;
 
 public class Solution {
 
     public static void main(String[] args) {
         int[][] matrix = {
-                {-177 * 5, -81 * 5, 254 * 5},
-                {   2 * 5, 195 * 5, -46 * 5},
-                { 331 * 5,-172 * 5,  21 * 5}
+                {1409 * 11, 73, 2772 * 11},
+                {1246 * 11, 67, 1633 * 11},
+                {      -72,-38,      -203}
         };
 
         matrixMod(matrix);
