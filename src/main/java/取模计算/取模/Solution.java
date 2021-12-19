@@ -1,7 +1,5 @@
 package 取模计算.取模;
 
-import com.sun.org.apache.xerces.internal.impl.xs.SchemaNamespaceSupport;
-
 import java.util.Scanner;
 
 import static java.lang.Math.floorMod;

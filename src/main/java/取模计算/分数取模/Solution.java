@@ -4,12 +4,12 @@ public class Solution {
 
     public static void main(String[] args) {
 //        findN(3817);
-        findN(53);
+        findN(650, 27);
     }
 
-    public static void findN(int val) {
-        for (int i = 0; i < 26; i++) {
-            if ((i * val) % 26 == 1) {
+    public static void findN(int val, int modNum) {
+        for (int i = 0; i < modNum; i++) {
+            if ((i * val) % modNum == 1) {
                 System.out.println("n = " + i);
                 break;
             }
