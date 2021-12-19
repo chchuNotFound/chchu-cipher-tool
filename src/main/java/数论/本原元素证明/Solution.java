@@ -5,7 +5,7 @@ import static java.lang.Math.floorMod;
 public class Solution {
 
     public static void main(String[] args) {
-        //
+        // 阶的计算fi(n) = n - 1
         proofPriElement(2, 11);
     }
     public static void proofPriElement(int element, int modNum) {
