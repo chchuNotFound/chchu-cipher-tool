@@ -5,6 +5,7 @@ import static java.lang.Math.floorMod;
 public class Solution {
 
     public static void main(String[] args) {
+        //
         proofPriElement(2, 11);
     }
     public static void proofPriElement(int element, int modNum) {
