@@ -1,4 +1,4 @@
-package 数论.同余方程组;
+package 数论.中国剩余定理求解同余方程组;
 
 import java.util.Scanner;
 

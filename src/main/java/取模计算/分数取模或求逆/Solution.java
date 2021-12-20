@@ -1,4 +1,4 @@
-package 取模计算.分数取模;
+package 取模计算.分数取模或求逆;
 
 public class Solution {
 
