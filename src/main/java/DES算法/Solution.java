@@ -8,6 +8,8 @@ public class Solution {
     static HashMap<Integer, Integer> permuTable1 = new HashMap<>();
     static HashMap<Integer, Integer> permuTable2 = new HashMap<>();
     static HashMap<Integer, Integer> exPermutation = new HashMap<>();
+    static HashMap<Integer, String> decToBinString = new HashMap<>();
+    static HashMap<Integer, Integer> pBox = new HashMap<>();
     static int[] A1 = new int[8];
     static int[] A2 = new int[8];
     static int[] A3 = new int[8];
@@ -64,6 +66,7 @@ public class Solution {
             {7, 11, 4, 1, 9, 12, 14, 2, 0, 6, 10, 13, 15, 3, 5, 8},
             {2, 1, 14, 7, 4, 10, 8, 13, 15, 12, 9, 0, 3, 5, 6, 11}
     };
+
 
     public static void main(String[] args) {
 
@@ -257,6 +260,41 @@ public class Solution {
         exPermutation.put(42, 28);
         exPermutation.put(47, 1);
 
+        decToBinString.put(0, "0000");
+        decToBinString.put(1, "0001");
+        decToBinString.put(2, "0010");
+        decToBinString.put(3, "0011");
+        decToBinString.put(4, "0100");
+        decToBinString.put(5, "0101");
+        decToBinString.put(6, "0110");
+        decToBinString.put(7, "0111");
+        decToBinString.put(8, "1000");
+        decToBinString.put(9, "1001");
+        decToBinString.put(10, "1010");
+        decToBinString.put(11, "1011");
+        decToBinString.put(12, "1100");
+        decToBinString.put(13, "1101");
+        decToBinString.put(14, "1110");
+        decToBinString.put(15, "1111");
+
+        pBox.put(0, 16);pBox.put(1, 7);
+        pBox.put(2, 20);pBox.put(3, 21);
+        pBox.put(4, 29);pBox.put(5, 12);
+        pBox.put(6, 28);pBox.put(7, 17);
+        pBox.put(8, 1);pBox.put(9, 15);
+        pBox.put(10, 23);pBox.put(11, 26);
+        pBox.put(12, 5);pBox.put(13, 18);
+        pBox.put(14, 31);pBox.put(15, 10);
+        pBox.put(16, 2);pBox.put(17, 8);
+        pBox.put(18, 24);pBox.put(19, 14);
+        pBox.put(20, 32);pBox.put(21, 27);
+        pBox.put(22, 3);pBox.put(23, 9);
+        pBox.put(24, 19);pBox.put(25, 13);
+        pBox.put(26, 30);pBox.put(27, 6);
+        pBox.put(28, 22);pBox.put(29, 11);
+        pBox.put(30, 4);pBox.put(31, 25);
+
+
         int[] plaintext = {
                 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 1, 0, 0, 1, 1, 1,
                 1, 0, 0, 0, 1, 0, 0, 1, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 0, 0, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1
@@ -267,9 +305,43 @@ public class Solution {
         };
         int[] K1 = keyPermutation(key);
         int[] ER0 = ipPermutation(plaintext);
+        // 需手动输入，从控制台获得
+        int[] L0 = {
+                1,1,0,0, 1,1,0,0,
+                0,0,0,0, 0,0,0,0,
+                1,1,0,0, 1,1,0,0,
+                1,1,1,1, 1,1,1,1
+        };
+        int[] R0 = {
+                1,1,1,1, 0,0,0,0,
+                1,0,1,0, 1,0,1,0,
+                1,1,1,1, 0,0,0,0,
+                1,0,1,0, 1,0,1,0
+        };
         int[] A = XOR(ER0, K1);
         splitA(A);
-
+        // 需手动输入：
+        // 例如，假设S盒8的输入为110011。
+        // 第1位和第6位组合为11，对应于S盒8的第3行；
+        // 第2位到第5位为1001，对应于S盒8的第9列。
+        // S盒8的第3行第9列的数字为12，因此用1100来代替110011。
+        // 注意，S盒的行列计数都是从0开始。
+        querySbox(0, 14, 1, 8, 0, 14, 2, 9, 2, 12, 1, 10, 3, 9, 2, 8);
+        // 根据querySbox查询结果，手动输入：如第二组查询结果为12，则第二组为1100
+        int[] B = new int[]{
+                0,0,0,0,
+                1,1,0,0,
+                0,0,1,0,
+                0,0,0,1,
+                0,1,1,0,
+                1,1,0,1,
+                0,1,0,1,
+                0,0,0,0
+        };
+        int[] PB = pTrans(B);
+        int[] R1 = pResultXorL0(PB, L0);
+        int[] L1 = R0;
+        L1CombineR1(L1, R1);
 
     }
 
@@ -460,7 +532,8 @@ public class Solution {
         for (int i = 0; i < 48; i++) {
             res[i] = ER0[i] ^ k1[i];
         }
-        System.out.println("E(R0)每位与K1异或后的结果A：");
+        System.out.println("E(R0)每位与K1异或后的结果");
+        System.out.println("A：");
         for (int i = 0; i < 48; i++) {
             if (i != 0 && i % 6 == 0) {
                 System.out.print(" ");
@@ -552,7 +625,109 @@ public class Solution {
 
     }
 
-    public static void SBoxTrans(int[] A)
+    /**
+     * 查询Sbox
+     *
+     * @param
+     */
+    public static void querySbox(int A1, int B1, int A2, int B2, int A3, int B3, int A4, int B4, int A5, int B5, int A6, int B6, int A7, int B7, int A8, int B8) {
+        int s1 = S1[A1][B1];
+        int s2 = S2[A2][B2];
+        int s3 = S3[A3][B3];
+        int s4 = S4[A4][B4];
+        int s5 = S5[A5][B5];
+        int s6 = S6[A6][B6];
+        int s7 = S7[A7][B7];
+        int s8 = S8[A8][B8];
 
+        System.out.println("");
+        System.out.println("S1的查询结果：" + s1);
+        System.out.println("S2的查询结果：" + s2);
+        System.out.println("S3的查询结果：" + s3);
+        System.out.println("S4的查询结果：" + s4);
+        System.out.println("S5的查询结果：" + s5);
+        System.out.println("S6的查询结果：" + s6);
+        System.out.println("S7的查询结果：" + s7);
+        System.out.println("S8的查询结果：" + s8);
 
+        String bin1 = decToBinString.get(s1);
+        String bin2 = decToBinString.get(s2);
+        String bin3 = decToBinString.get(s3);
+        String bin4 = decToBinString.get(s4);
+        String bin5 = decToBinString.get(s5);
+        String bin6 = decToBinString.get(s6);
+        String bin7 = decToBinString.get(s7);
+        String bin8 = decToBinString.get(s8);
+        System.out.println("B:" + bin1 +" "+ bin2 + " " + bin3 + " " + bin4 + " " + bin5 + " " + bin6 + " " + bin7 + " " + bin8);
+    }
+
+    /**
+     * P盒置换
+     * @param B
+     * @return
+     */
+    public static int[] pTrans(int[] B) {
+        int[] PB = new int[32];
+        for (int i = 0; i < B.length; i++) {
+            PB[i] = B[pBox.get(i) - 1];
+        }
+        System.out.print("P(B):");
+        for(int i = 0; i < PB.length; i++) {
+            if(i % 4 == 0 && i != 0) {
+                System.out.print(" ");
+            }
+            System.out.print(PB[i]);
+        }
+        return PB;
+    }
+
+    /**
+     * P(B)与L0进行异或
+     * @param PB
+     * @return
+     */
+    public static int[] pResultXorL0(int[] PB, int[] L0) {
+        int[] R1 = new int[32];
+        for(int i = 0; i < PB.length; i++) {
+            if(L0[i] == PB[i]) {
+                R1[i] = 0;
+            } else {
+                R1[i] = 1;
+            }
+        }
+        System.out.println("");
+        System.out.print("R1: ");
+        for(int i = 0; i < R1.length; i++) {
+            if(i % 4 == 0 && i != 0) {
+                System.out.print(" ");
+            }
+            System.out.print(R1[i]);
+        }
+        return R1;
+    }
+
+    /**
+     * 将L1和R1相拼接
+     * @param L1
+     * @param R1
+     */
+    public static void L1CombineR1(int[] L1, int[] R1) {
+        System.out.println("");
+        System.out.print("L1||R1: ");
+        System.out.println("");
+        for(int i = 0; i < L1.length; i++) {
+            if(i % 4 == 0 && i != 0) {
+                System.out.print(" ");
+            }
+            System.out.print(L1[i]);
+        }
+        System.out.println("");
+        for(int i = 0; i < R1.length; i++) {
+            if(i % 4 == 0 && i != 0) {
+                System.out.print(" ");
+            }
+            System.out.print(R1[i]);
+        }
+        return;
+    }
 }
