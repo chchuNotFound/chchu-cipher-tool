@@ -3,11 +3,10 @@ package 取模计算.分数取模或求逆;
 public class Solution {
 
     public static void main(String[] args) {
-//        findN(3817);
-        findN(650, 27);
+        findN(104729, 15485863);
     }
 
-    public static void findN(int val, int modNum) {
+    public static void findN(long val, long modNum) {
         for (int i = 0; i < modNum; i++) {
             if ((i * val) % modNum == 1) {
                 System.out.println("n = " + i);

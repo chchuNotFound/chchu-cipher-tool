@@ -1,13 +1,19 @@
-package 数论.本原元素证明;
+package EIGamal密码体制;
 
 import static java.lang.Math.floorMod;
 
 public class Solution {
 
     public static void main(String[] args) {
-        // 模数若是素数p，阶的计算Ord(a) = p - 1
-        // 如底数为7，指数为n（从1开始计数）,模数为7919 ，阶值为7918
-        proofPriElement(6, 7);
+        int α = 7;
+        int a = 21839;
+        int modNum = 31847;
+        long β = squareMultiply(α, a, modNum);
+        int k = 511;
+        long y1 = squareMultiply(α, k, modNum);
+        int x = 389;
+        long y2 = x * squareMultiply(β, k, modNum);
+        System.out.println("x = " + floorMod(y2 * squareMultiply(findN(y1, modNum), a, modNum), modNum));
     }
 
     /**
@@ -52,5 +58,22 @@ public class Solution {
 //            System.out.println("第" + (count - i - 1) + "个比特为"+ ci.charAt(i) + "，得: z = " + z);
         }
         return z;
+    }
+
+    /**
+     * 求逆算法
+     * @param val
+     * @param modNum
+     */
+    public static int findN(long val, long modNum) {
+        int ans = 0;
+        for (int i = 0; i < modNum; i++) {
+            if ((i * val) % modNum == 1) {
+//                System.out.println("n = " + i);
+                ans = i;
+                break;
+            }
+        }
+        return ans;
     }
 }

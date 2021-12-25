@@ -1,35 +1,22 @@
-package 数论.本原元素证明;
+package EIGamal密码体制.私钥;
 
 import static java.lang.Math.floorMod;
 
 public class Solution {
 
     public static void main(String[] args) {
-        // 模数若是素数p，阶的计算Ord(a) = p - 1
-        // 如底数为7，指数为n（从1开始计数）,模数为7919 ，阶值为7918
-        proofPriElement(6, 7);
-    }
-
-    /**
-     * 本原元素证明
-     * @param element
-     * @param modNum
-     */
-    public static void proofPriElement(int element, int modNum) {
-        long ans = 0;
-        int count = 1;
-        while(ans != 1) {
-            ans = squareMultiply(element, count, modNum);
-            System.out.println("第" + count + "次：" + ans);
-            count++;
-            if(count == modNum) {
+        int α = 7;
+        int a = 0;
+        int modNum = 31847;
+        long β;
+        while(true) {
+            β = squareMultiply(α, a, modNum);
+            if( β == 18074) {
                 break;
             }
+            a++;
         }
-        if(count == modNum) {
-            System.out.println( element + "是模"+ modNum + "的一个本原元素。");
-        }
-        return;
+        System.out.println("a = " + a);
     }
 
     /**
@@ -53,4 +40,5 @@ public class Solution {
         }
         return z;
     }
+
 }
