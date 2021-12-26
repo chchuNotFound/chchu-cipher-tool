@@ -2,9 +2,9 @@ package RSA算法.平方乘算法;
 
 public class Solution {
     public static void main(String[] args) {
-        int x = 3;
-        int c = 9;
-        int n = 19684;
+        int x = 32767;
+        int c = (2);
+        int n = 199*211;
         System.out.println(squareMultiply(x, c, n));
     }
 
