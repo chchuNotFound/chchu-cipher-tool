@@ -6,9 +6,10 @@ public class Solution {
 
     public static void main(String[] args) {
         int α = 7;
+        // a需要先算
         int a = 21839;
         int modNum = 31847;
-        // β = α^a mod modNum   modNum 也是 p
+        // β = α^a mod modNum = 7^21839 mod 31847   modNum 也是 p
         long β = squareMultiply(α, a, modNum);
         System.out.println("β = " + β);
         int k = 511;
