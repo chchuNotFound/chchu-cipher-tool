@@ -16,7 +16,10 @@ public class Solution {
             }
             a++;
         }
-        System.out.println("a = " + a);
+        System.out.println("p = " + modNum);
+        System.out.println("alpha = " + α);
+        System.out.println("beta = " + β);
+        System.out.println("私钥：a = " + a);
     }
 
     /**

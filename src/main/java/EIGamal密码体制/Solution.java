@@ -8,12 +8,19 @@ public class Solution {
         int α = 7;
         int a = 21839;
         int modNum = 31847;
+        // β = α^a mod modNum   modNum 也是 p
         long β = squareMultiply(α, a, modNum);
+        System.out.println("β = " + β);
         int k = 511;
+        // y1 = α^k mod β = 7^511 mod 31847
         long y1 = squareMultiply(α, k, modNum);
+        System.out.println("y1 = " + y1);
         int x = 389;
-        long y2 = x * squareMultiply(β, k, modNum);
-        System.out.println("x = " + floorMod(y2 * squareMultiply(findN(y1, modNum), a, modNum), modNum));
+        // y2 = (x * β^k) mod β = (389 * 18074^511) mod 31847
+        long y2 = floorMod(x * squareMultiply(β, k, modNum), modNum);
+        System.out.println("y2 = " + y2);
+        System.out.println("密文：y = " + "(" + y1 + "," + y2 + ")");
+        System.out.println("解密得：x = " + floorMod(y2 * squareMultiply(findN(y1, modNum), a, modNum), modNum));
     }
 
     /**
