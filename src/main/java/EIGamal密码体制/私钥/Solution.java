@@ -10,6 +10,7 @@ public class Solution {
         int modNum = 31847;
         long β;
         while(true) {
+            // 暴力试出私钥a
             β = squareMultiply(α, a, modNum);
             if( β == 18074) {
                 break;

@@ -7,7 +7,7 @@ public class Solution {
     public static void main(String[] args) {
         // 模数若是素数p，阶的计算Ord(a) = p - 1
         // 如底数为7，指数为n（从1开始计数）,模数为7919 ，阶值为7918
-        proofPriElement(6, 7);
+        proofPriElement(7, 7919);
     }
 
     /**

@@ -3,6 +3,7 @@ package 仿射密码加密;
 public class Solution {
 
     public static void main(String[] args) {
+        // a和b的求法，详情见笔记
         affineCipherEncoder(
                 "AOPC GUDE YKRO IFKG BEFM CPIY CRAR DEPB " +
                         "AQUF EPGH KJPK DDCJ GKPJ IEVC GEBE BAYC " +
