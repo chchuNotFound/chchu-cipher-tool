@@ -9,7 +9,7 @@ public class Solution {
     static Map<Integer, Character> chMap = new HashMap<>();
 
     public static void main(String[] args) {
-        for(int i = 0; i < 26; i++) {
+        for (int i = 0; i < 26; i++) {
             char ch = (char) ('A' + i);
             chMap.put(i, ch);
         }
@@ -36,7 +36,7 @@ public class Solution {
 //        for (int i = 0; i < ZnList.size(); i++) {
 //            System.out.println(ZnList.get(i));
 //        }
-
+        // 先分解n，得出p和q
         RSAEncryAndDecry(181, 173);
     }
 
@@ -193,7 +193,7 @@ public class Solution {
                         char ch1 = chMap.get(i);
                         char ch2 = chMap.get(j);
                         char ch3 = chMap.get(z);
-                        System.out.print(ch1 +""+ ch2 + "" + ch3);
+                        System.out.print(ch1 + "" + ch2 + "" + ch3);
                     }
                 }
             }
