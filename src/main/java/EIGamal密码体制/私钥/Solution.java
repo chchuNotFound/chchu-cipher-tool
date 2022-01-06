@@ -5,13 +5,16 @@ import static java.lang.Math.floorMod;
 public class Solution {
 
     public static void main(String[] args) {
+        // 输入alpha
         int α = 7;
         int a = 0;
+        // 输入p
         int modNum = 31847;
         long β;
         while(true) {
             // 暴力试出私钥a
             β = squareMultiply(α, a, modNum);
+            // 输入beta
             if( β == 18074) {
                 break;
             }

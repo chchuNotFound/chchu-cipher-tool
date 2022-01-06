@@ -9,8 +9,8 @@ public class Solution {
     }
 
     public static void mod() {
-        long a = 32767 * (32767 + 1357);
-        long b = 199 * 211;
+        long a = 20964;
+        long b = 1987;
         System.out.println("a mod b = " + floorMod(a, b));
         System.out.println("---------------------");
 
