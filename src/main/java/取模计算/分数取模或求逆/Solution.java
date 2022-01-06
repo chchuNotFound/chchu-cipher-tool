@@ -3,7 +3,7 @@ package 取模计算.分数取模或求逆;
 public class Solution {
 
     public static void main(String[] args) {
-        findN(15, 26);
+        findN(2, 211*199);
     }
 
     public static void findN(long val, long modNum) {

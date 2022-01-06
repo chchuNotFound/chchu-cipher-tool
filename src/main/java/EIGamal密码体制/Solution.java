@@ -5,17 +5,21 @@ import static java.lang.Math.floorMod;
 public class Solution {
 
     public static void main(String[] args) {
+        // 输入alpha
         int α = 7;
-        // a需要先算
+        // a需要先算:代码在EIGamal密码体制-私钥
         int a = 21839;
+        // 输入p
         int modNum = 31847;
         // β = α^a mod modNum = 7^21839 mod 31847   modNum 也是 p
         long β = squareMultiply(α, a, modNum);
         System.out.println("β = " + β);
+        // 输入随机数k
         int k = 511;
         // y1 = α^k mod β = 7^511 mod 31847
         long y1 = squareMultiply(α, k, modNum);
         System.out.println("y1 = " + y1);
+        // 输入加密明文
         int x = 389;
         // y2 = (x * β^k) mod β = (389 * 18074^511) mod 31847
         long y2 = floorMod(x * squareMultiply(β, k, modNum), modNum);
