@@ -47,7 +47,7 @@ public class Solution {
     public static long findN(long val, long modNum) {
         long ans = 0;
         for (long i = 0; i < modNum; i++) {
-            if ((i * val) % modNum == 1) {
+            if (floorMod((i * val), modNum) == 1) {
                 ans = i;
                 break;
             }

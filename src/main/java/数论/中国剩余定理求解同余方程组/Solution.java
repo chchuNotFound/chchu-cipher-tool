@@ -46,7 +46,7 @@ public class Solution {
     public static int findN(int val, int modNum) {
         int ans = 0;
         for (int i = 0; i < modNum; i++) {
-            if ((i * val) % modNum == 1) {
+            if (floorMod((i * val), modNum) == 1) {
                 ans = i;
                 break;
             }

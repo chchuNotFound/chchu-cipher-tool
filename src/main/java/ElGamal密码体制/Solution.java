@@ -80,7 +80,7 @@ public class Solution {
     public static int findN(long val, long modNum) {
         int ans = 0;
         for (int i = 0; i < modNum; i++) {
-            if ((i * val) % modNum == 1) {
+            if (floorMod((i * val), modNum) == 1) {
 //                System.out.println("n = " + i);
                 ans = i;
                 break;
