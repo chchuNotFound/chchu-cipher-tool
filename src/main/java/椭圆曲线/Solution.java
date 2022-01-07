@@ -43,6 +43,7 @@ public class Solution {
         for(int i = 0; i < points.size(); i++) {
             System.out.print("(" + points.get(i).x + "," + points.get(i).y + "),");
         }
+        //
         System.out.println("}");
         System.out.println("共有" + (points.size() + 1) + "个点");
     }
