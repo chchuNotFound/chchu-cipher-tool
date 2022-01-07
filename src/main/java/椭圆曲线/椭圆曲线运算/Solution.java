@@ -1,4 +1,4 @@
-package 椭圆曲线;
+package 椭圆曲线.椭圆曲线运算;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,7 +40,7 @@ public class Solution {
             System.out.println("-----------------");
         }
         System.out.print("E = { O（无穷远点）, ");
-        for(int i = 0; i < points.size(); i++) {
+        for (int i = 0; i < points.size(); i++) {
             System.out.print("(" + points.get(i).x + "," + points.get(i).y + "),");
         }
         //
@@ -72,6 +72,9 @@ public class Solution {
         return z;
     }
 
+    /**
+     * 坐标点对象
+     */
     static class Point {
         private int x;
         private int y;
