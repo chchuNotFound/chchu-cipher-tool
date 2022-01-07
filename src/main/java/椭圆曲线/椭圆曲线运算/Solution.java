@@ -8,7 +8,7 @@ import static java.lang.Math.floorMod;
 public class Solution {
 
     public static void main(String[] args) {
-        ellipticCurveOperation(1, 6, 11);
+        ellipticCurveOperation(1, 1, 19);
     }
 
     public static void ellipticCurveOperation(int a, int b, int Z) {

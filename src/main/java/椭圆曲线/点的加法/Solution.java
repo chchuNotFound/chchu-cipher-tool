@@ -5,7 +5,7 @@ import static java.lang.Math.floorMod;
 public class Solution {
 
     public static void main(String[] args) {
-        pointAddition(3, 5, 5, 9, 11);
+        pointAddition(2, 7, 13, 11, 19);
     }
 
     public static void pointAddition (int x1, int y1, int x2, int y2, int Z) {

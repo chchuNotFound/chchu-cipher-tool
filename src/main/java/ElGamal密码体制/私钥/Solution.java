@@ -1,4 +1,4 @@
-package EIGamal密码体制.私钥;
+package ElGamal密码体制.私钥;
 
 import static java.lang.Math.floorMod;
 
@@ -6,7 +6,7 @@ public class Solution {
 
     public static void main(String[] args) {
         // 输入alpha
-        int α = 7;
+        int α = 5;
         int a = 0;
         // 输入p
         int modNum = 31847;
@@ -15,7 +15,7 @@ public class Solution {
             // 暴力试出私钥a
             β = squareMultiply(α, a, modNum);
             // 输入beta
-            if( β == 18074) {
+            if( β == 25703) {
                 break;
             }
             a++;

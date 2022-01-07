@@ -1,4 +1,4 @@
-package EIGamal密码体制;
+package ElGamal密码体制;
 
 import static java.lang.Math.floorMod;
 
