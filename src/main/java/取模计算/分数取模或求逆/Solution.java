@@ -5,7 +5,7 @@ import static java.lang.Math.floorMod;
 public class Solution {
 
     public static void main(String[] args) {
-        findN(2, 211*199);
+        findN(104729, 15485863);
     }
 
     public static void findN(long val, long modNum) {
